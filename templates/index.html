@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suivi Livraisons</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form input { margin-right: 10px; padding: 5px; }
+        button { padding: 5px 10px; }
+        ul { margin-top: 20px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Suivi Livraisons</h1>
+    <form action="/ajouter" method="post">
+        <input type="text" name="nom_client" placeholder="Nom client" required>
+        <input type="text" name="produit" placeholder="Produit" required>
+        <button type="submit">Ajouter</button>
+    </form>
+
+    <ul>
+        {% for livraison in livraisons %}
+            <li>{{ livraison.nom_client }} - {{ livraison.produit }} - {{ livraison.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
